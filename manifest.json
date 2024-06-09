@@ -1,0 +1,39 @@
+{
+  "manifest_version": 3,
+  "name": "Tab Switcher",
+  "version": "1.0",
+  "author": "beeaass",
+  "description": "Switch tabs by holding Left Shift and scrolling the mouse wheel.",
+  "permissions": [
+    "tabs",
+    "storage"
+  ],
+  "background": {
+    "service_worker": "src/scripts/background.js"
+  },
+  "action": {
+    "default_popup": "componets/switcher.html",
+    "default_icon": {
+      "16": "src/images/icon16.png",
+      "48": "src/images/icon48.png",
+      "128": "src/images/icon128.png"
+    }
+  },
+  "icons": {
+    "16": "src/images/icon16.png",
+    "48": "src/images/icon48.png",
+    "128": "src/images/icon128.png"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "<all_urls>"
+      ],
+      "js": [
+        "src/scripts/content.js"
+      ],
+      "all_frames": true,
+      "run_at": "document_start"
+    }
+  ]
+}
